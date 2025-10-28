@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>After 30 Days Journey with Vic & Tere ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd8e8, #fff, #ffeaea);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+      overflow: auto;
+    }
+
+    .bubble {
+      position: absolute;
+      background: rgba(255, 182, 193, 0.18);
+      border-radius: 50%;
+      animation: float 12s infinite ease-in-out;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-25px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+
+    .container {
+      background: rgba(255,255,255,0.96);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 720px;
+      text-align: left;
+      position: relative;
+      z-index: 2;
+    }
+
+    header {
+      background: linear-gradient(to right, rgba(255, 230, 240, 0.8), rgba(255,255,255,0));
+      border-radius: 14px;
+      padding: 10px 15px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: #e85b81;
+      margin: 0 0 6px 0;
+      font-weight: 700;
+    }
+
+    p.subtitle {
+      font-size: 15px;
+      color: #555;
+      margin: 0 0 18px 0;
+    }
+
+    .question {
+      margin-bottom: 28px;
+      font-weight: 600;
+      color: #444;
+      background: #fff8fb;
+      border: 1px solid #ffe0ea;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .options label {
+      display: block;
+      margin: 10px 0;
+      background: #fff0f5;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      border: 1px solid #ffd6e0;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .options label:hover {
+      background: #ffd6e6;
+      transform: scale(1.01);
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .info-input {
+      margin-bottom: 24px;
+    }
+
+    .info-input label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #555;
+    }
+
+    .info-input input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ffd6e0;
+      background: #fff0f5;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .controls {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-submit {
+      background: #e85b81;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: #d94a6f;
+      transform: scale(1.05);
+    }
+
+    .result-page {
+      display: none;
+      text-align: center;
+    }
+
+    .score-container {
+      background: rgba(255,255,255,0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin-top: 30px;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .score {
+      font-size: 24px;
+      font-weight: 700;
+      color: #e85b81;
+      margin-bottom: 20px;
+    }
+
+    .details {
+      background: #fff8fb;
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid #ffe2ec;
+      line-height: 1.6;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="bubble" style="width:120px; height:120px; top:6%; left:6%; animation-delay:0s;"></div>
+  <div class="bubble" style="width:180px; height:180px; top:60%; right:6%; animation-delay:3s;"></div>
+  <div class="bubble" style="width:90px; height:90px; top:75%; left:22%; animation-delay:6s;"></div>
+
+  <div class="container" id="quiz-page">
+    <header>
+      <h1>After 30 Days Journey with Vic & Tere ✨</h1>
+      <p class="subtitle">Hai! Yuk refleksi bareng perubahan positif yang kamu rasain setelah 30 hari konsumsi DVN 💫</p>
+    </header>
+
+    <form id="quizForm">
+      <div class="info-input">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama kamu" required />
+      </div>
+      <div class="info-input">
+        <label for="whatsapp">Nomor WhatsApp</label>
+        <input type="text" id="whatsapp" name="whatsapp" placeholder="Contoh: 081234567890" required />
+      </div>
+    </form>
+
+    <div class="controls">
+      <button type="button" class="btn-submit" id="submitBtn">Submit ✨</button>
+    </div>
+  </div>
+
+  <div class="result-page" id="result-page">
+    <div class="score-container">
+      <h1>Hasil After 30 Days Journey ✨</h1>
+      <p class="subtitle">Perjalanan kamu bareng Vic & Tere 💕</p>
+      <div class="score" id="score"></div>
+      <div class="details" id="details"></div>
+    </div>
+  </div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // ganti dengan URL Google Apps Script kamu
+
+    const questions = [
+      { title: '1. Konsumsi DVN', text: 'Seberapa rutin kamu minum DVN pagi & malam?', options: ['Kadang lupa minum lebih dari 3x seminggu', '5–6x seminggu, kadang skip 1–2 kali', 'Hampir tiap hari (jarang skip)', 'Konsisten banget tiap pagi & malam'] },
+      { title: '2. Perubahan kulit', text: 'Bagaimana kondisi kulit kamu sekarang dibanding sebelum mulai challenge?', options: ['Masih sama seperti awal, belum terasa lembap', 'Sedikit lebih lembap tapi masih kering di area tertentu', 'Lembap dan lebih halus saat disentuh', 'Halus, cerah, dan sehat (tekstur makin merata)'] },
+      { title: '3. Pola tidur', text: 'Selama sebulan terakhir, kamu tidur jam berapa dan kualitasnya?', options: ['Sering begadang (tidur <5 jam)', 'Tidur tidak teratur (kadang sebelum jam 12, kadang lewat)', 'Mulai tidur lebih awal (sekitar jam 11, 6–7 jam tidur)', 'Tidur cukup 7–8 jam dan bangun segar 😴'] },
+      { title: '4. Asupan air & makanan', text: 'Bagaimana kesadaran kamu terhadap minum air & makan sehat?', options: ['Jarang minum air (<3 gelas/hari)', 'Kadang ingat minum, belum rutin', 'Sudah mulai minum 6–8 gelas/hari', 'Rajin minum air & jaga pola makan seimbang 💧'] },
+      { title: '5. Mood & stress', text: 'Bagaimana kondisi mood dan stres kamu akhir-akhir ini?', options: ['Sering moody atau mudah stres tiap minggu', 'Masih kadang stres tapi mulai bisa kontrol', 'Lebih tenang di keseharian', 'Mood stabil dan semangat tiap hari 🌸'] },
+      { title: '6. Skincare routine', text: 'Bagaimana rutinitas skincare kamu selama 30 hari ini?', options: ['Masih jarang pakai skincare', 'Mulai rutin tapi kadang lupa sunscreen', 'Sudah rutin tiap pagi & malam', 'Konsisten full skincare termasuk sunscreen 💆🏻‍♀️'] },
+      { title: '7. Energi & semangat', text: 'Bagaimana tingkat energi kamu setiap harinya?', options: ['Sering lemas, gampang lelah', 'Mulai sedikit lebih segar', 'Energi stabil sepanjang hari', 'Badan enteng & semangat tinggi 💪🏻'] },
+      { title: '8. Self-confidence', text: 'Ketika lihat wajah di cermin sekarang...', options: ['Masih belum percaya diri', 'Mulai lebih nyaman lihat wajah sendiri', 'Sudah pede bare face di rumah', 'Pede tampil tanpa makeup 🌞'] },
+      { title: '9. Mindset perubahan', text: 'Seberapa sadar kamu tentang pentingnya rawat diri dari dalam?', options: ['Belum paham pentingnya', 'Mulai paham & coba pelan-pelan', 'Sudah lebih aware & rutin', 'Ngerti pentingnya keseimbangan mental & fisik 💖'] },
+      { title: '10. Kebiasaan baru', text: 'Apakah kamu merasa ada perubahan gaya hidup lebih sehat?', options: ['Belum ada perubahan berarti', 'Mulai kurangi kebiasaan buruk', 'Sudah punya beberapa kebiasaan baik baru', 'Hidup lebih mindful & seimbang 🌿'] }
+    ];
+
+    const form = document.getElementById('quizForm');
+
+    questions.forEach((q, i) => {
+      const qDiv = document.createElement('div');
+      qDiv.classList.add('question');
+      qDiv.innerHTML = `<strong>${q.title}</strong><br><span>${q.text}</span>`;
+      const optsDiv = document.createElement('div');
+      optsDiv.classList.add('options');
+      q.options.forEach((opt, idx) => {
+        const label = document.createElement('label');
+        label.innerHTML = `<input type="radio" name="q${i+1}" value="${idx+1}"> ${String.fromCharCode(65+idx)}. ${opt}`;
+        optsDiv.appendChild(label);
+      });
+      qDiv.appendChild(optsDiv);
+      form.appendChild(qDiv);
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const nama = document.getElementById('nama').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      if (!nama || !whatsapp) {
+        alert('Mohon isi nama dan nomor WhatsApp terlebih dahulu');
+        return;
+      }
+
+      let score = 0;
+      for (let i = 1; i <= 10; i++) {
+        const selected = document.querySelector(`input[name='q${i}']:checked`);
+        if (selected) score += parseInt(selected.value);
+      }
+
+      const percentage = (score / 40) * 100;
+      const resultPage = document.getElementById('result-page');
+      const quizPage = document.getElementById('quiz-page');
+      const scoreText = document.getElementById('score');
+      const detailsText = document.getElementById('details');
+
+      quizPage.style.display = 'none';
+      resultPage.style.display = 'block';
+
+      scoreText.textContent = `${nama}, skor kamu: ${percentage.toFixed(0)}%`;
+
+      let message = '';
+      if (percentage <= 50) {
+        message = `🤍 0–50% → Masih belum konsisten, tapi kamu udah mulai jalan ✨\n\nBelum konsisten itu wajar banget di awal. Tubuh kamu lagi adaptasi — kadang hasilnya belum kelihatan, tapi prosesnya udah jalan 💫\n\nYuk lanjut pelan-pelan bareng Vic & Tere 💕`;
+      } else if (percentage <= 70) {
+        message = `💛 51–70% → Mulai stabil, tinggal dijaga aja!\n\nProgress kamu udah kelihatan 🌸 Biasanya di fase ini tubuh udah mulai kasih respon positif. Yuk lanjut 1–2 bulan lagi biar hasilnya makin stabil ✨`;
+      } else if (percentage <= 85) {
+        message = `💕 71–85% → Konsistensimu keren banget!\n\nKamu udah punya kebiasaan bagus 💪🏻 Yuk lanjut ke fase glow consistency ✨`;
+      } else {
+        message = `🌷 86–100% → You did it!\n\nTubuh kamu udah kasih respon terbaik! Sekarang tinggal dijaga dan lanjut ke fase maintenance glow ✨`;
+      }
+
+      detailsText.textContent = message;
+
+      // --- Kirim hasil ke Google Sheets ---
+      const formData = new FormData();
+      formData.append('nama', nama);
+      formData.append('whatsapp', whatsapp);
+      formData.append('score', percentage.toFixed(0));
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          if (!response.ok) throw new Error('Gagal kirim data ke Google Sheets');
+          console.log('Data berhasil dikirim');
+        })
+        .catch(error => console.error('Error!', error));
+    });
+  </script>
+</body>
+</html>
